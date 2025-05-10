@@ -1,0 +1,29 @@
+---
+import { date } from "astro:schema"
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        date: 'Noviembre 2023 - Junio 2024',
+        title: 'Desarrollador Web',
+        company: 'Agencia Seoclic Murcia',
+        description: 'Desarrollé aplicaciones web con Wordpress, Prestashop, HTML, CSS, JavaScript, Laravel y WP Emerge. Trabajé en equipo para crear soluciones web eficientes y optimizar componentes de frontend. Realicé pruebas y depuración de código para garantizar la calidad y el rendimiento. Contribuí a la documentación técnica y a la implementación de buenas prácticas. Mi equipo me reconoció por mi capacidad de aprendizaje y adaptación a nuevas tecnologías.',
+        link: 'https://www.seoclic.com/'
+    },
+    {
+        date: 'Abril 2022 - Junio 2022',
+        title: 'Técnico de Sistemas',
+        company: 'Viva Copier Granada',
+        description: 'Prácticas en las cuales realicé mantenimiento y configuración de equipos, gestión de redes y conectividad, soporte técnico, gestión de software, etc. ',
+        link: 'https://www.vivacopier.com/',
+    }
+]
+---
+<ol class="relative mt-16">
+    {
+        EXPERIENCE.map(experience=>(
+            <ExperienceItem {...experience}/>
+        ))
+    }
+</ol>
+

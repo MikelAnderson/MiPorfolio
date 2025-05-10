@@ -1,0 +1,60 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import '@fontsource-variable/onest';
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Porfolio Mikel Otavalo - Desarrollador y Programador Web Experto"</title>
+		<meta name="description" content="Especializado en el desarrollo de aplicaciones web y técnico en sistemas informáticos. Diseño y maquetación de páginas web.">
+		<script>
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				document.documentElement.classList.add('dark');
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
+		<script src="../assets/darmode.js"></script>
+	</head>
+	<body class="relative text-black dark:text-white">
+		<div class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
+      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+	<Header/>
+		<slot />
+	<Footer class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4" />
+	</body>
+</html>
+
+
+<style is:global>
+	:root{
+		color-scheme: light dark;
+	}
+
+	html{
+		font-family: 'Onest Variable', system-ui, sans-serif;
+		scroll-behavior: smooth;
+
+	}
+
+	body{
+		background-color: #050505;
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
+	@media (prefers-reduced-motion: reduce){
+		html {
+			scroll-behavior: auto;
+		}
+	}
+</style>
+
