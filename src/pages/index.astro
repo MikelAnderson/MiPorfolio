@@ -15,13 +15,14 @@ import Code from '../components/icons/Code.astro';
 import Proyects from '../components/Proyects.astro';
 import AboutMeIcon from '../components/icons/AboutMeIcon.astro';
 import Download from '../components/icons/Download.astro';
+import TitleSection from '../components/TitleSection.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
 	<main class="px-4">
-		<SectionContainer class=" animate-fade-in section py-16 md:py-36 scroll-m-20 w-full mx-auto container">
+		<SectionContainer class="animate-blurred-fade-in duration-500 lg:h-[100dvh] lg:flex lg:flex-col justify-center section py-16 md:py-36 scroll-m-20 w-full mx-auto container">
 			<div>
 				<div class="flex gap-4 mb-4">
 					<h1 class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white">
@@ -57,14 +58,14 @@ import Download from '../components/icons/Download.astro';
 			</nav>
 		</SectionContainer>
 		<div class="space-y-24">
-			<SectionContainer id="experience" class="animate-fade-in">
-				<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined">
+			<SectionContainer id="experiencia" class="animate-slide-in-bottom">
+				<TitleSection>
 					<Suitcase class="size-8"/>Experiencia laboral
-				</h2>
+				</TitleSection>				
 				<Experience/>
 			</SectionContainer>
 			
-			<SectionContainer id="proyects" class="animate-fade-in ">
+			<SectionContainer id="proyectos" class="animate-fade-in ">
 				<h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white undefined">
 					<Code class="size-8"/>Proyectos
 				</h2>
@@ -92,7 +93,7 @@ import Download from '../components/icons/Download.astro';
 					<img width="200" height="200" src="/retrato.JPG" alt="Mikel Otavalo" class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " style="object-position: 50% 50%">
 				</article>
 			</SectionContainer>
-		</div>	
+		</div>		
 		
 	</main>
 </Layout>

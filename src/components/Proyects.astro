@@ -1,33 +1,123 @@
 ---
 import HTMLicon from "./icons/HTMLicon.astro";
+import LaravelIcon from "./icons/LaravelIcon.astro";
+import LinkButton from "./LinkButton.astro";
+import Github from "./icons/Github.astro";
+import Link from "./icons/Link.astro";
+import BootstrapIcon from "./icons/BootstrapIcon.astro";
+import PHPIcon from "./icons/PHPIcon.astro";
+import Talwind from "./icons/Tailwind.astro"; 
+import Springboot from "./icons/Springboot.astro";
+import SQLIcon from "./icons/SQLIcon.astro";
+import React from "./icons/React.astro";
+
 const TAGS = {
     HTML: {
         name:"HTML",
         class: "bg-black text-white ",
         icon: HTMLicon,
-    }
+    },
+    Laravel:{
+        name:"Laravel",
+        class: "bg-[#F53003] text-white ",
+        icon: LaravelIcon,
+    },
+    Bootstrap:{
+        name:"Bootstrap",
+        class: "bg-[#563d7c] text-white ",
+        icon: BootstrapIcon,
+    },
+    SQL:{
+        name:"SQL",
+        class: "bg-[#DC7939] text-white ",
+        icon: SQLIcon,
+    },
+    PHP:{
+        name:"PHP",
+        class: "bg-[#4F5B93] text-white ",
+        icon: PHPIcon,
+    },
+    Tailwind:{
+        name:"Tailwind",
+        class: "bg-[#003159] text-white ",
+        icon: Talwind,
+    },
+    Springboot:{
+        name:"Springboot",
+        class: "bg-white text-black ",
+        icon: Springboot,
+    },
+    React:{
+        name:"React",
+        class: "bg-[#404756] text-white ",
+        icon: React,
+    },
 }
+// Listado de proyectos
+// Puedes agregar más proyectos siguiendo el mismo formato
 
 const PROJECTS = [
     {
-        title: 'Proyect 1',
-        description: 'Lorem ipsum',
+        title: 'Tienda Online en Laravel',
+        description: 'Desarrollé una tienda online completa utilizando Laravel como framework backend. El proyecto incluye funcionalidades esenciales de comercio electrónico, enfocadas en rendimiento, seguridad y una experiencia de usuario fluida.',
+        link: '#',
+        github: '#',
+        image:['/banner1.jpg', '/retrato.JPG', '/screenshot.png'],
+        tags: [TAGS.Laravel, TAGS.Bootstrap,TAGS.SQL]
+    },
+    {
+        title: 'Tienda online en PHP',
+        description: 'Desarrollé una aplicación web para la gestión de tareas utilizando Laravel y Vue.js. La aplicación permite a los usuarios crear, editar y eliminar tareas, así como organizarlas en listas personalizadas.',
+        link: '#',
+        github: '#',
+        image:'/banner1.jpg',
+        tags: [TAGS.PHP, TAGS.Bootstrap,TAGS.React]
+    },
+    {
+        title: 'Portfolio Personal',
+        description: 'Este es mi portfolio personal, donde muestro mis proyectos y habilidades. Utilicé Astro para crear un sitio web rápido y optimizado.',
         link: '#',
         github: '#',
         image:'https://placehold.co/300x200',
-        tags: [TAGS.HTML,]
+        tags: [TAGS.Tailwind,TAGS.PHP, TAGS.Springboot]
     }
 ]
 ---
+        <div class="flex flex-col gap-y-16">
 
 {
     PROJECTS.map(project =>(
-        <div class="flex flex-col gap-y-16">
             <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
                 <div class="w-full md:w-1/2">
-                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                        <img alt={`Captura de pantalla del proyecto ${project.title}`} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={project.image}>
+                    <div id="controls-carousel" class="relative w-full" data-carousel="static">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-64  overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 ">
+                            { (Array.isArray(project.image) ? project.image : [project.image]).map((img, index) => (
+                                <div class="hidden duration-1200 ease-in-out" data-carousel-item={index == 0 ? "active" : ""}>
+                                <img src={img} class="relative h-full object-cover  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                </div>
+                                ))
+                            }
+                        </div>
+                        <!-- Slider controls -->
+                        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-3 h-3 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                </svg>
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                                <svg class="w-3 h-3 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
                     </div>
+
                 </div>
                 <div class="w-full md:w-1/2 md:max-w-lg">
                     <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{project.title} </h3>
@@ -35,20 +125,37 @@ const PROJECTS = [
                         <ul class="flex flex-row gap-x-2 mb-2">
                             {project.tags.map((tag) => (
                             <li>
-                                <span class={`flex items-center gap-x-2 rounded-full text-xs py-1 px-2 ${tag.class}`}>
-                                <tag.icon class="mx-1"/>
+                                <span class={`flex items-center gap-x-2 rounded-full shadow text-xs py-1 ps-2 pe-3 ${tag.class}`}>
+                                <tag.icon class="size-4"/>
                                 {tag.name}
                                 </span> 
                             </li>
                             ))}
                         </ul>
                     </div>
-                    <div class="mt-2 text-gray-700 dark:text-gray-400">
+                    <div class="mt-2 text-gray-700 dark:text-gray-400 text-pretty">
                         {project.description}
                     </div>
+                    <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {project.github && (
+            <LinkButton href={project.github}>
+              <Github class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {project.link && (
+            <LinkButton href={project.link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
                 </div>
         </article>
-        </div>
-        
     ))
 }
+        </div>
+
+
+        
