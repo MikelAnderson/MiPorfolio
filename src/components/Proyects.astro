@@ -44,7 +44,7 @@ const TAGS = {
     },
     Springboot:{
         name:"Springboot",
-        class: "bg-white text-black ",
+        class: "bg-white text-black border border-gray-200 ",
         icon: Springboot,
     },
     React:{
@@ -91,7 +91,7 @@ const PROJECTS = [
                 <div class="w-full md:w-1/2">
                     <div id="controls-carousel" class="relative w-full" data-carousel="static">
                         <!-- Carousel wrapper -->
-                        <div class="relative h-64  overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700 ">
+                        <div class="relative h-64  overflow-hidden rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 ">
                             { (Array.isArray(project.image) ? project.image : [project.image]).map((img, index) => (
                                 <div class="hidden duration-1200 ease-in-out" data-carousel-item={index == 0 ? "active" : ""}>
                                 <img src={img} class="relative h-full object-cover  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
@@ -125,7 +125,7 @@ const PROJECTS = [
                         <ul class="flex flex-row gap-x-2 mb-2">
                             {project.tags.map((tag) => (
                             <li>
-                                <span class={`flex items-center gap-x-2 rounded-full shadow text-xs py-1 ps-2 pe-3 ${tag.class}`}>
+                                <span class={`animate-fade-in-left duration-1000 flex items-center gap-x-2 rounded-full shadow-xl text-xs py-1 ps-2 pe-3 ${tag.class}`}>
                                 <tag.icon class="size-4"/>
                                 {tag.name}
                                 </span> 
