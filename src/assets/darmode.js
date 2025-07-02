@@ -31,24 +31,46 @@ themeToggleBtn.addEventListener('click', function () {
 });
 
 
-
+//GSAP Animation
 import { gsap } from "gsap";
     
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import SocialPill from "../components/icons/SocialPill.astro";
 
 gsap.registerPlugin(ScrollTrigger,SplitText);
 
-// the target can be selector text, an element, or an Array of elements
 let split = SplitText.create(".split", { type: "words, chars", });
 
-console.log(split.chars); // log the characters to the console  
-
-// now animate the characters in a staggered fashion
 gsap.from(split.words, {
-  duration: 2, 
-  opacity: 0, // animate from opacity: 0
-  ease:"sine.out", // ease out effect
-  stagger: 0.1
-  , // 0.05 seconds between each
+  y: 20,
+  filter: "blur(10px)",
+  autoAlpha: 0,
+  stagger: 0.05,
 });
+
+gsap.from(".social", {
+  y: 20,
+  autoAlpha: 0, 
+filter: "blur(10px)",
+  stagger: 0.05,
+  delay: 0.5,});
+  
+gsap.from(".badge", {
+  y: 20,
+  autoAlpha: 0,
+  filter: "blur(10px)",
+delay: 1,
+})  
+
+gsap.from(".header ",{
+  transform: "scale(0.1)",
+  autoAlpha: 0,
+  filter: "blur(10px)",
+})
+
+gsap.from("img",{
+  transform: "scale(0.5)",
+  autoAlpha: 0,
+  filter: "blur(10px)",
+})
