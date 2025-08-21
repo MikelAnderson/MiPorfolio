@@ -50,11 +50,10 @@ gsap.from(split.words, {
 });
 
 gsap.from(".social", {
-  y: 20,
-  autoAlpha: 0, 
 filter: "blur(10px)",
-  stagger: 0.05,
-  delay: 0.5,});
+  transform: "scale(0.5)",
+  autoAlpha: 0,
+delay:1});
   
 gsap.from(".badge", {
   y: 20,

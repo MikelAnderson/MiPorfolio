@@ -10,6 +10,8 @@ import Talwind from "./icons/Tailwind.astro";
 import Springboot from "./icons/Springboot.astro";
 import SQLIcon from "./icons/SQLIcon.astro";
 import React from "./icons/React.astro";
+import WordpressIcon from "./icons/WordpressIcon.astro";
+import ElementorIcon from "./icons/ElementorIcon.astro";
 
 const TAGS = {
     HTML: {
@@ -52,35 +54,50 @@ const TAGS = {
         class: "bg-[#404756] text-white ",
         icon: React,
     },
+    Wordpress:{
+        name:"Wordpress",
+        class: "bg-[#21759B] text-white ",
+        icon: WordpressIcon
+    },
+    Elementor:{
+        name:"Elementor",
+        class: "bg-[#FFA8EE] text-black ",
+        icon: ElementorIcon
+    },
 }
 // Listado de proyectos
 // Puedes agregar más proyectos siguiendo el mismo formato
 
 const PROJECTS = [
     {
-        title: 'Tienda Online en Laravel',
-        description: 'Desarrollé una tienda online completa utilizando Laravel como framework backend. El proyecto incluye funcionalidades esenciales de comercio electrónico, enfocadas en rendimiento, seguridad y una experiencia de usuario fluida.',
-        link: '#',
-        github: '#',
-        image:['/banner1.jpg', '/screenshot.png', '/banner1.jpg'],
+        title: 'ECOIMPRESIÓN',
+        description: 'Colaboré en el desarrollo y mantenimiento de funcionalides web, por ejemplo, una calculadora para presupuestos. Utilizamos Laravel como framework backend. El proyecto incluye funcionalidades esenciales de comercio electrónico, enfocadas en rendimiento, seguridad y una experiencia de usuario fluida.',
+        link: 'https://www.ecoimpresion.es/',
+        image:['/proyectos/ecoimpresion/ecoimpresion1.png', '/proyectos/ecoimpresion/ecoimpresion2.png', '/proyectos/ecoimpresion/ecoimpresion3.png'],
         tags: [TAGS.Laravel, TAGS.Bootstrap,TAGS.SQL]
     },
     {
-        title: 'Tienda online en PHP',
-        description: 'Desarrollé una aplicación web para la gestión de tareas utilizando Laravel y Vue.js. La aplicación permite a los usuarios crear, editar y eliminar tareas, así como organizarlas en listas personalizadas.',
-        link: '#',
-        github: '#',
-        image:'/banner1.jpg',
-        tags: [TAGS.PHP, TAGS.Bootstrap,TAGS.React]
+        title: 'E-commerce Laravel',
+        description: 'Desarrollé un e-commerce utilizando Laravel, PHP y Bootstrap. Implementé un sistema de gestión de productos, carrito de compras, panel de admin. El proyecto incluye una interfaz de usuario intuitiva y un panel de administración para gestionar pedidos y clientes.',
+        github: 'https://github.com/MikelAnderson/tiendaOtavalo',
+        image:['/proyectos/laravelstore/om1.png', '/proyectos/laravelstore/om2.png', '/proyectos/laravelstore/om3.png','/proyectos/laravelstore/om4.png'],
+        tags: [TAGS.Laravel,TAGS.PHP, TAGS.Bootstrap, TAGS.SQL]
     },
     {
-        title: 'Portfolio Personal',
-        description: 'Este es mi portfolio personal, donde muestro mis proyectos y habilidades. Utilicé Astro para crear un sitio web rápido y optimizado.',
-        link: '#',
-        github: '#',
-        image:'https://placehold.co/300x200',
-        tags: [TAGS.Tailwind,TAGS.PHP, TAGS.Springboot]
+        title: 'Centro Impulso Murcia',
+        description: 'Desarrolle un sitio web para un gimnasio en Murcia. Ulitice Wordpress y Elementor para crear un sitio web atractivo y funcional. El sitio incluye un sistema de reservas, gestión de clases y un blog para noticias y actualizaciones. Además, implementamos un área de clientes para gestionar sus horarios y clases.',
+        link: 'https://centroimpulso.es/',
+        image:['/proyectos/centroimpulso/centroimpulso1.png', '/proyectos/centroimpulso/centroimpulso3.png', '/proyectos/centroimpulso/centroimpulso2.png',],
+        tags: [TAGS.Wordpress, TAGS.Elementor, TAGS.SQL]
+    },
+    { 
+        title: 'Basileus',
+        description: 'Desarrolle un sitio web completo para un catálogo de luminarias de la empresa Basileus. Ulitice Wordpress y Elementor para maquetar la web y tenga un diseño moderno e intuitivo. El sitio incluye categorias y productos, fichas para cada producto, un blog para noticias y actualizaciones, y un área de contacto para consultas.',
+        link: 'https://basileus.es/',
+        image:['/proyectos/basileus/basileus1.png', '/proyectos/basileus/basileus2.png', '/proyectos/basileus/basileus3.png'],
+        tags: [TAGS.Wordpress, TAGS.Elementor, TAGS.SQL]
     }
+    
 ]
 ---
 <div class="flex flex-col gap-y-16">
@@ -91,10 +108,10 @@ const PROJECTS = [
                 <div class="w-full md:w-1/2" >
                     <div id="controls-carousel" class="relative w-full" data-carousel="static">
                         <!-- Carousel wrapper -->
-                        <div class="relative h-64  overflow-hidden rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 ">
+                        <div class="relative h-70  overflow-hidden rounded-xl shadow-2xl border border-gray-300 dark:border-gray-700 ">
                             { (Array.isArray(project.image) ? project.image : [project.image]).map((img, index) => (
                                 <div class="hidden duration-1200 ease-in-out" data-carousel-item={index == 0 ? "active" : ""}>
-                                <img src={img} class="relative h-full object-cover  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                                <img src={img} class="relative h-full object-cover  w-full" alt="...">
                                 </div>
                                 ))
                             }
@@ -140,14 +157,14 @@ const PROJECTS = [
           {project.github && (
             <LinkButton href={project.github}>
               <Github class="size-6" />
-              Code
+              Código
               
             </LinkButton>
           )}
           {project.link && (
             <LinkButton href={project.link}>
               <Link class="size-4" />
-              Preview
+              Visitar web
             </LinkButton>
           )}
         </footer>
